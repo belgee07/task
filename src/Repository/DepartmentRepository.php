@@ -16,7 +16,7 @@ class DepartmentRepository extends ServiceEntityRepository
     public function findByDepartmentName(string $departmentName): ?Department
     {
         return $this->createQueryBuilder('d')
-            ->andWhere('d.departmentName = :name') // department_name биш departmentName ашиглана
+            ->andWhere('d.departmentName = :name')
             ->setParameter('name', $departmentName)
             ->getQuery()
             ->getOneOrNullResult();

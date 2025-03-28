@@ -14,7 +14,6 @@ class SalesRepository extends ServiceEntityRepository
         parent::__construct($registry, Sales::class);
     }
 
-    // Сарын борлуулалтыг авах
     public function findSalesByMonth(string $month)
     {
         return $this->createQueryBuilder('s')

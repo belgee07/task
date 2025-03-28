@@ -14,7 +14,7 @@ class Department
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $departmentName; // department_name-г departmentName болгож засах
+    private $departmentName;
 
     public function getId(): ?int
     {
