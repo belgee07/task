@@ -3,12 +3,12 @@
 {% block title %}Home Page{% endblock %}
 
 {% block body %}
-    <h1>ДААЛГАВАР</h1>
-    <nav>
-        <ul>
-            <li><a href="{{ path('department_list') }}">Department</a></li>
-            <li><a href="{{ path('sales_index') }}">Sales</a></li>
-            <li><a href="{{ path('sales_report') }}">Sales Report</a></li> 
+    <h1 class="my-4 text-center">ДААЛГАВАР</h1>
+    <nav class="mb-4">
+        <ul class="list-group">
+            <li class="list-group-item"><a href="{{ path('department_list') }}" class="btn btn-link w-100">Department</a></li>
+            <li class="list-group-item"><a href="{{ path('sales_index') }}" class="btn btn-link w-100">Sales</a></li>
+            <li class="list-group-item"><a href="{{ path('sales_report') }}" class="btn btn-link w-100">Sales Report</a></li>
         </ul>
     </nav>
 {% endblock %}

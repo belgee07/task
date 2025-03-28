@@ -3,7 +3,7 @@
 {% block title %}Department List{% endblock %}
 
 {% block body %}
-    <h1>Department List</h1>
+    <h1 class="my-4">Department List</h1>
 
     {% for message in app.flashes('success') %}
         <div class="alert alert-success">
@@ -11,7 +11,7 @@
         </div>
     {% endfor %}
 
-    <table class="table">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>ID</th>
