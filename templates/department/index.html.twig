@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Department List{% endblock %}
+
+{% block body %}
+    <h1>Department List</h1>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Department Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for department in departments %}
+                <tr>
+                    <td>{{ department.id }}</td>
+                    <td>{{ department.departmentName }}</td>
+                    <td>
+                        <a href="{{ path('department_edit', {'id': department.id}) }}" class="btn btn-primary btn-sm">Edit</a>
+                        <form method="post" action="{{ path('department_delete', {'id': department.id}) }}" style="display:inline;" onsubmit="return confirm('Are you sure?');">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ department.id) }}">
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('department_create') }}" class="btn btn-success">Create New Department</a>
+{% endblock %}

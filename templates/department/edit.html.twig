@@ -1,0 +1,13 @@
+{# templates/department/edit.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Department{% endblock %}
+
+{% block body %}
+    <h1>Edit Department</h1>
+
+    {{ form_start(form) }}
+        {{ form_row(form.departmentName) }}
+        <button type="submit">Update</button>
+    {{ form_end(form) }}
+{% endblock %}

@@ -1,0 +1,43 @@
+{# templates/sales/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Sales List{% endblock %}
+
+{% block body %}
+    <h1>Sales List</h1>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Department</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for sale in sales %}
+                <tr>
+                    <td>{{ sale.department.departmentName }}</td>
+                    <td>{{ sale.amount }}</td>
+                    <td>{{ sale.date|date('Y-m-d H:i') }}</td>
+                    <td>
+                        <a href="{{ path('sales_edit', {'id': sale.id}) }}" class="btn btn-primary btn-sm">Edit</a>
+                        <form method="post" action="{{ path('sales_delete', {'id': sale.id}) }}" style="display:inline;" onsubmit="return confirm('Are you sure?');">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ sale.id) }}">
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('sales_create') }}" class="btn btn-success">Create New Sale</a>
+{% endblock %}

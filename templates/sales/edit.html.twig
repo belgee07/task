@@ -1,0 +1,15 @@
+{# templates/sales/edit.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Sales{% endblock %}
+
+{% block body %}
+    <h1>Edit Sales</h1>
+
+    {{ form_start(form) }}
+        {{ form_row(form.department) }}
+        {{ form_row(form.amount) }}
+        {{ form_row(form.date) }}
+        <button type="submit">Update</button>
+    {{ form_end(form) }}
+{% endblock %}

@@ -1,0 +1,25 @@
+{# templates/sales_report/report.html.twig #}
+<h1>Sales Report: Current Month vs Previous Month</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Department</th>
+            <th>Current Month Sales</th>
+            <th>Previous Month Sales</th>
+            <th>Difference</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for department in salesComparison %}
+            <tr>
+                <td>{{ department.department.departmentName }}</td>
+                <td>{{ department.currentMonthSales }}</td>
+                <td>{{ department.previousMonthSales }}</td>
+                <td style="color: {% if department.difference < 0 %}red{% elseif department.difference > 0 %}green{% else %}black{% endif %};">
+                    {{ department.difference }}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

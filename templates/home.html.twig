@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block body %}
+    <h1>ДААЛГАВАР</h1>
+    <nav>
+        <ul>
+            <li><a href="{{ path('department_list') }}">Department</a></li>
+            <li><a href="{{ path('sales_index') }}">Sales</a></li>
+            <li><a href="{{ path('sales_report') }}">Sales Report</a></li> 
+        </ul>
+    </nav>
+{% endblock %}
