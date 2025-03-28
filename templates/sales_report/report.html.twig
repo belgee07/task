@@ -1,6 +1,35 @@
 {# templates/sales_report/report.html.twig #}
 <h1>Sales Report: Current Month vs Previous Month</h1>
 
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    th {
+        background-color: #f4f4f4;
+        font-weight: bold;
+    }
+    tr:hover {
+        background-color: #f1f1f1;
+    }
+    .positive {
+        color: green;
+    }
+    .negative {
+        color: red;
+    }
+    .neutral {
+        color: black;
+    }
+</style>
+
 <table>
     <thead>
         <tr>
@@ -16,7 +45,7 @@
                 <td>{{ department.department.departmentName }}</td>
                 <td>{{ department.currentMonthSales }}</td>
                 <td>{{ department.previousMonthSales }}</td>
-                <td style="color: {% if department.difference < 0 %}red{% elseif department.difference > 0 %}green{% else %}black{% endif %};">
+                <td class="{% if department.difference < 0 %}negative{% elseif department.difference > 0 %}positive{% else %}neutral{% endif %}">
                     {{ department.difference }}
                 </td>
             </tr>
